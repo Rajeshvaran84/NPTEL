@@ -1,0 +1,31 @@
+<html>
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<script>
+		var myheaders = new Headers();
+        myheaders.append('Accept', 'application/json');
+        myheaders.append('Content-Type', 'application/json');
+        myheaders.append('Access-Control-Allow-Origin', 'http://localhost:81/');
+        myheaders.append('Access-Control-Allow-Credentials', 'true');
+        myheaders.append("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE");
+		myheaders.append("Access-Control-Max-Age", "86400");
+        myheaders.append("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token");
+
+		const url = "https://frontend-hiring.appspot.com/all_categories?secret=HelloMars";
+		let promise = fetch(url, {
+			method: "GET",
+			headers: myheaders,
+			mode: "cors",
+			credentials: "same-origin",
+			cache: "default"
+		}).then(function(response) {
+			alert(response.text());
+		}, function(error) {
+		  alert(error.message);
+		});
+	</script>
+</head>
+<body>
+</body>
+</html>
