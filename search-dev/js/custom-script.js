@@ -126,9 +126,9 @@ function filldata(courseresults)
 
 		var regExp = /(\d{1,2})\-(\d{1,2})\-(\d{2,4})/;
 		
-		var diffDays = date2.getDate() - date1.getDate(); 
-		var weeks =  parseInt(estimated_workload.replace(" hrs per day", ""));
-		weeks = Math.round((weeks * parseInt(diffDays))/7);
+		var a = moment([date1.getFullYear(), date1.getMonth(), date1.getDate()]);
+		var b = moment([date2.getFullYear(), date2.getMonth(), date2.getDate()]);
+		weeks = b.diff(a, 'weeks');
 		
 		if (weeks>0)
 			weeks=weeks + ' week course, ';
